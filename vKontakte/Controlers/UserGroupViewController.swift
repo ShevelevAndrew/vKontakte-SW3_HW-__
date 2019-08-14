@@ -351,7 +351,6 @@ class UserGroupViewController: UITableViewController, UISearchResultsUpdating, U
     
     @objc func endOfWork() {
         refreshControl!.endRefreshing()
-        
         //timer?.invalidate()
         //timer = nil
     }
