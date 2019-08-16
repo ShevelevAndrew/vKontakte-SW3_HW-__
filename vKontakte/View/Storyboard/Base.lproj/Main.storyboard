@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O7L-E7-3FY">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -127,7 +127,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="qkx-aY-zzA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="37.681159420289859" y="18.75"/>
+            <point key="canvasLocation" x="19" y="-198"/>
+        </scene>
+        <!--Login Controller-->
+        <scene sceneID="fpY-fC-kzk">
+            <objects>
+                <viewController id="O7L-E7-3FY" customClass="VKLoginController" customModule="vKontakte" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="39L-8l-gIO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spI-tb-XZ8">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="spI-tb-XZ8" firstAttribute="trailing" secondItem="jQC-gf-vTI" secondAttribute="trailing" id="BB0-rK-TLh"/>
+                            <constraint firstItem="spI-tb-XZ8" firstAttribute="bottom" secondItem="jQC-gf-vTI" secondAttribute="bottom" id="SQr-gx-LdG"/>
+                            <constraint firstItem="spI-tb-XZ8" firstAttribute="top" secondItem="jQC-gf-vTI" secondAttribute="top" id="WW4-9a-u8M"/>
+                            <constraint firstItem="spI-tb-XZ8" firstAttribute="leading" secondItem="jQC-gf-vTI" secondAttribute="leading" id="sPy-yV-Bo2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jQC-gf-vTI"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="spI-tb-XZ8" id="qow-5x-KgK"/>
+                        <segue destination="V6E-4r-6zq" kind="presentation" identifier="showTabBarContollers" id="w4c-3M-XUq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QAL-kf-Lh9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="19" y="502"/>
         </scene>
         <!--Friends Collection View Controller-->
         <scene sceneID="y2C-Wl-zgY">
@@ -138,27 +173,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nZ1-IJ-ZOv">
-                            <size key="itemSize" width="405" height="380"/>
+                            <size key="itemSize" width="409" height="396"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" reuseIdentifier="ForcastCell" id="Ynd-Iv-5dA" customClass="ForcastCell" customModule="vKontakte" customModuleProvider="target">
-                                <rect key="frame" x="4.5" y="0.0" width="405" height="380"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" misplaced="YES" reuseIdentifier="ForcastCell" id="Ynd-Iv-5dA" customClass="ForcastCell" customModule="vKontakte" customModuleProvider="target">
+                                <rect key="frame" x="2.5" y="0.0" width="409" height="396"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="405" height="380"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="409" height="396"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="more Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eo7-u3-7hP">
-                                            <rect key="frame" x="166" y="16" width="73" height="20.5"/>
+                                            <rect key="frame" x="168" y="16" width="73" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="aq3-HR-Zub">
-                                            <rect key="frame" x="177.5" y="56.5" width="50" height="50"/>
+                                            <rect key="frame" x="179.5" y="56.5" width="50" height="50"/>
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="OhI-gx-z0e"/>
@@ -174,7 +209,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TL9-Tx-avi" customClass="Likebutton" customModule="vKontakte" customModuleProvider="target">
-                                            <rect key="frame" x="157.5" y="138.5" width="30" height="30"/>
+                                            <rect key="frame" x="159.5" y="138.5" width="30" height="30"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="TEp-fT-37I"/>
@@ -193,13 +228,13 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PP9-tw-1vR">
-                                            <rect key="frame" x="192.5" y="145.5" width="20" height="14"/>
+                                            <rect key="frame" x="194.5" y="145.5" width="20" height="14"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="635-lJ-epf">
-                                            <rect key="frame" x="0.0" y="188.5" width="405" height="181.5"/>
+                                            <rect key="frame" x="0.0" y="188.5" width="409" height="114.5"/>
                                             <gestureRecognizers/>
                                         </imageView>
                                     </subviews>
@@ -590,4 +625,7 @@
         <image name="news" width="32" height="32"/>
         <image name="user" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="w4c-3M-XUq"/>
+    </inferredMetricsTieBreakers>
 </document>

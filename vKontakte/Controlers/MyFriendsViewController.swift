@@ -49,7 +49,7 @@ class MyFriendsViewController: UITableViewController, UISearchResultsUpdating, U
         
     }
     @objc func doSomething(refreshControl: UIRefreshControl) {
-        print("Hello World!")
+        print("Hello World! refresh....")
         
         // somewhere in your code you might need to call:
         refreshControl.endRefreshing()
