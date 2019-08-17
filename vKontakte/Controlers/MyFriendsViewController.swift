@@ -36,6 +36,8 @@ class MyFriendsViewController: UITableViewController, UISearchResultsUpdating, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NetworkService.loadFriends()
+        
         filterContentForSearchText(searchText: "")
         searchBarSet()
         
@@ -46,7 +48,7 @@ class MyFriendsViewController: UITableViewController, UISearchResultsUpdating, U
         
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(doSomething), for: .valueChanged)
-        
+       
     }
     @objc func doSomething(refreshControl: UIRefreshControl) {
         print("Hello World! refresh....")

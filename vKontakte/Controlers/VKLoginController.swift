@@ -68,22 +68,19 @@ extension VKLoginController: WKNavigationDelegate {
         
         print(params)
         
-        let sessions = Sessions.self
-        
-        
         guard let token = params["access_token"],
             let userIdString = params["user_id"],
             let _ = Int(userIdString) else {
                 decisionHandler(.allow)
                 return
         }
-        sessions.shared.token = token
-        sessions.shared.userId = userIdString
+        Sessions.shared.token = token
+        Sessions.shared.userId = userIdString
         
         //        Session.shared.token = token
         //         performSegue(withIdentifier:"")
         
-        NetworkService.loadGroups(token: sessions.shared.token)
+//        NetworkService.loadGroups(token: sessions.shared.token)
         
         performSegue(withIdentifier: "showTabBarContollers", sender: nil)
         

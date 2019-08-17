@@ -52,6 +52,8 @@ class UserGroupViewController: UITableViewController, UISearchResultsUpdating, U
         tableView.addSubview(refreshControl!)
         loadCustomRefreshContents()
         refreshControl?.addTarget(self, action: #selector(doSomething), for: .valueChanged)
+        
+        NetworkService.loadGroups()
     }
     
 //    @objc func doSomething(refreshControl: UIRefreshControl) {

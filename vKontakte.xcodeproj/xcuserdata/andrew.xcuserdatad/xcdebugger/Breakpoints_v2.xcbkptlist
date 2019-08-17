@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vKontakte/Controlers/UserGroupViewController.swift"
-            timestampString = "587444570.730132"
+            timestampString = "587725055.900882"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
             landmarkName = "animateRefreshStep2()"
             landmarkType = "7">
             <Locations>
