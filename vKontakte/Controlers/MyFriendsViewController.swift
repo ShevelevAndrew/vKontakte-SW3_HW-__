@@ -36,7 +36,8 @@ class MyFriendsViewController: UITableViewController, UISearchResultsUpdating, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkService.loadFriends()
+        //NetworkService.loadFriends()
+        NetworkService.loadFrend()
         
         filterContentForSearchText(searchText: "")
         searchBarSet()
