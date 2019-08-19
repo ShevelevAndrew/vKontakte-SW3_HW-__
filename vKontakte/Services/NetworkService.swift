@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class NetworkService {
     
@@ -62,11 +63,24 @@ class NetworkService {
         let params: Parameters = [
             "access_token": Sessions.shared.token,
             "user_id": Sessions.shared.userId,
-            "fields": "nickname,domain,sex,bdate,city,country,photo_50,has_mobile,contacts",
+            "fields": "nickname,domain,sex,bdate,city,country,photo_50,photo_100,has_mobile,contacts",
             "v": "5.92"
         ]
-        NetworkService.session.request(baseUrl + path, method: .get, parameters: params).responseString { response in guard let string = response.value else { return }
-            print(string)
+        NetworkService.session.request(baseUrl + path, method: .get, parameters: params).responseData { response in
+            switch response.result {
+            case .success(let data):
+                let decoder = JSONDecoder()
+                do {
+                   let users = try decoder.decode(FriendModel.self, from: data)
+                    users.response.items.forEach { print("\($0.firstName): \($0.lastName)")}
+                  //  print(users.response.items[0].firstName)
+                    //users.forEach { print("\($0.first_name): \($0.last_name)")}
+                } catch {
+                    print(error)
+                }
+            case .failure(let error):
+                print(error)
+            }
         }
         
     }
