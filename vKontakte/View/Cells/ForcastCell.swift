@@ -19,6 +19,8 @@ class ForcastCell: UICollectionViewCell {
  
     @IBOutlet weak var fotoColection: UIImageView!
     
+    var friends: FriendModels!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

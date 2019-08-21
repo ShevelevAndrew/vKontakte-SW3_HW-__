@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 private let reuseIdentifier = "Cell"
 
@@ -19,6 +20,8 @@ class FriendsCollectionViewController: UICollectionViewController {
     var imageCount: Int = 0
     weak var likeCountLabel: UILabel!
     weak var likeButton: Likebutton!
+    
+    var friends = [FriendModels]()
     
     weak var fotoCollections: UIImageView!
     
@@ -52,10 +55,12 @@ class FriendsCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ForcastCell.reuseIdentifier, for: indexPath) as?
         ForcastCell else { return UICollectionViewCell() }
         
-        cell.friendNameLabel.text = "Friend " + friendNameForLabel
-        cell.friendImageView.image = friendNameForImage
+        cell.friendNameLabel.text = friends[0].name
+        let urlImage = URL(string: friends[0].image)
+        cell.friendImageView.kf.setImage(with: urlImage)
+        //cell.friendImageView.image = friendNameForImage
         
-        cell.likeCount.text = likeCount
+        cell.likeCount.text = friends[0].likeCount
         likeButton = cell.likeButton
         likeCountLabel = cell.likeCount
         fotoCollections = cell.fotoColection

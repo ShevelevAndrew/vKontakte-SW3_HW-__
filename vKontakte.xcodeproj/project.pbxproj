@@ -41,6 +41,7 @@
 		49E14E0F230689B700FBEEFC /* Sessions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E14E0E230689B700FBEEFC /* Sessions.swift */; };
 		49E14E1123093F4A00FBEEFC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E14E1023093F4A00FBEEFC /* NetworkService.swift */; };
 		49E14E13230AAF0000FBEEFC /* FrindModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E14E12230AAF0000FBEEFC /* FrindModel.swift */; };
+		49E14E15230CD94300FBEEFC /* FriendModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E14E14230CD94300FBEEFC /* FriendModels.swift */; };
 		58704BDE235FA74E9E2A16BC /* Pods_vKontakte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2F244D71E9B6DBA1DA52C8 /* Pods_vKontakte.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		49E14E0E230689B700FBEEFC /* Sessions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sessions.swift; sourceTree = "<group>"; };
 		49E14E1023093F4A00FBEEFC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		49E14E12230AAF0000FBEEFC /* FrindModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrindModel.swift; sourceTree = "<group>"; };
+		49E14E14230CD94300FBEEFC /* FriendModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModels.swift; sourceTree = "<group>"; };
 		5197DE0BD605D8E562AE5667 /* Pods-vKontakte.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vKontakte.debug.xcconfig"; path = "Target Support Files/Pods-vKontakte/Pods-vKontakte.debug.xcconfig"; sourceTree = "<group>"; };
 		B23C872B2F1EED678FCAA1E6 /* Pods-vKontakte.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vKontakte.release.xcconfig"; path = "Target Support Files/Pods-vKontakte/Pods-vKontakte.release.xcconfig"; sourceTree = "<group>"; };
 		EF2F244D71E9B6DBA1DA52C8 /* Pods_vKontakte.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vKontakte.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 				490F2F7B22AF5D180020B8C9 /* NewsModel.swift */,
 				49E14E0E230689B700FBEEFC /* Sessions.swift */,
 				49E14E12230AAF0000FBEEFC /* FrindModel.swift */,
+				49E14E14230CD94300FBEEFC /* FriendModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				490F2F7C22AF5D190020B8C9 /* NewsModel.swift in Sources */,
 				49605AB322BB91D2004C3D6D /* CustomSeque.swift in Sources */,
 				498EB7CB228BBAC500657B22 /* AppDelegate.swift in Sources */,
+				49E14E15230CD94300FBEEFC /* FriendModels.swift in Sources */,
 				490F2F7A22AE5F1B0020B8C9 /* NewsCell.swift in Sources */,
 				490F2F6C22AA6C900020B8C9 /* CustomTableviewCell.swift in Sources */,
 				498E13522296B04A00C72ECA /* FriendsCell.swift in Sources */,
