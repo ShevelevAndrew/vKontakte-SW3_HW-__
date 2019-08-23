@@ -13,12 +13,18 @@ class CustomTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var friendImageView: UIImageView!
-    
+  
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    public func configure (with friend: FriendModels) {
+        nameLabel.text = friend.name
+        let urlImage = URL(string: friend.image)
+        friendImageView.kf.setImage(with: urlImage)
     }
 }

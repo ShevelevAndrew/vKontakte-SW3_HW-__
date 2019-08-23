@@ -170,29 +170,19 @@ class MyFriendsViewController: UITableViewController, UISearchResultsUpdating, U
         cell.layer.add(animationCell, forKey: nil)
         cell.layer.cornerRadius = 5
         cell.clipsToBounds = true
-        
+
         if !(searchController.isActive && searchController.searchBar.text != "") {
 
             let friendKey = friendSectionTitle[indexPath.section]
             if let friendValues = friendDictionary[friendKey] {
-                cell.nameLabel.text = friendValues[indexPath.row].name
-                
-                let urlImage = URL(string: friendValues[indexPath.row].image)
-                cell.friendImageView.kf.setImage(with: urlImage)
-                
-                
-               //* cell.friendImageView.image = friendValues[indexPath.row].image
+                cell.configure(with: friendValues[indexPath.row])
                 cell.nameLabel.layer.add(animationCell, forKey: nil)
                 cell.friendImageView.layer.add(animationCell, forKey: nil)
             }
         } else {
             let friendKey = friendSectionTitle[indexPath.section]
             if let friendValues = friendDictionary[friendKey] {
-                cell.nameLabel.text = friendValues[indexPath.row].name
-                
-                let urlImage = URL(string: friendValues[indexPath.row].image)
-                cell.friendImageView.kf.setImage(with: urlImage)
-             //*   cell.friendImageView.image = friendValues[indexPath.row].image
+                cell.configure(with: friendValues[indexPath.row])
                 cell.friendImageView.layer.add(animationCell, forKey: nil)
             }
         }
