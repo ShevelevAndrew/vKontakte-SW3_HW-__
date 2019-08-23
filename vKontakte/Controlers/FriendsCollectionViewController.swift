@@ -55,12 +55,13 @@ class FriendsCollectionViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ForcastCell.reuseIdentifier, for: indexPath) as?
         ForcastCell else { return UICollectionViewCell() }
         
-        cell.friendNameLabel.text = friends[0].name
-        let urlImage = URL(string: friends[0].image)
-        cell.friendImageView.kf.setImage(with: urlImage)
-        //cell.friendImageView.image = friendNameForImage
+//        cell.friendNameLabel.text = friends[0].name
+//        let urlImage = URL(string: friends[0].image)
+//        cell.friendImageView.kf.setImage(with: urlImage)
+        let friend = friends[0]
+        cell.configure(with: friend)
         
-        cell.likeCount.text = friends[0].likeCount
+//        cell.likeCount.text = friends[0].likeCount
         likeButton = cell.likeButton
         likeCountLabel = cell.likeCount
         fotoCollections = cell.fotoColection

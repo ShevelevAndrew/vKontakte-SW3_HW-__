@@ -24,4 +24,11 @@ class ForcastCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    public func configure (with friend: FriendModels){
+        friendNameLabel.text = friend.name
+        let urlImage = URL(string: friend.image)
+        friendImageView.kf.setImage(with: urlImage)
+        likeCount.text = friend.likeCount
+    }
 }
