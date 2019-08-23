@@ -10,12 +10,13 @@ import UIKit
 
 class SearchGroupViewController: UITableViewController  {
 
-    var groupUser: [GroupModel] = [
-        GroupModel(name: "Космос", image: UIImage(named: "group1")!),
-        GroupModel(name: "Океан", image: UIImage(named: "group2")!),
-        GroupModel(name: "Растения", image: UIImage(named: "group2")!),
-        GroupModel(name: "Облака", image: UIImage(named: "group1")!),
-    ]
+    var groupUser = [GroupModels]()
+//    var groupUser: [GroupModels] = [
+//        GroupModel(name: "Космос", image: UIImage(named: "group1")!),
+//        GroupModel(name: "Океан", image: UIImage(named: "group2")!),
+//        GroupModel(name: "Растения", image: UIImage(named: "group2")!),
+//        GroupModel(name: "Облака", image: UIImage(named: "group1")!),
+//    ]
     
     
     
@@ -63,7 +64,7 @@ class SearchGroupViewController: UITableViewController  {
             else { return UITableViewCell() }
         
         cell.nameLabel.text = groupUser[indexPath.row].name
-        cell.friendImageView.image = groupUser[indexPath.row].image
+       //* cell.friendImageView.image = groupUser[indexPath.row].image
         return cell
     }
     

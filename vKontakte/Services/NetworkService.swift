@@ -38,6 +38,28 @@ class NetworkService {
         }
     }
     
+    static func loadGroup(completion: @escaping (Result<[GroupModels], Error>) -> Void) {
+        let baseUrl = "https://api.vk.com"
+        let path = "/method/groups.get"
+        let params: Parameters = [
+            "access_token": Sessions.shared.token,
+            "extended": 1,
+            "v": "5.92"
+        ]
+        NetworkService.session.request(baseUrl + path, method: .get, parameters: params).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let groupsJson = json["response"]["items"].arrayValue
+                let groups = groupsJson.map { GroupModels($0) }
+                completion(.success(groups))
+                
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
     static func loadFriends() {
         let baseUrl = "https://api.vk.com"
         let path = "/method/friends.get"

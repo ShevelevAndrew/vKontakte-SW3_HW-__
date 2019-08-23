@@ -27,4 +27,9 @@ class CustomTableViewCell: UITableViewCell {
         let urlImage = URL(string: friend.image)
         friendImageView.kf.setImage(with: urlImage)
     }
+    public func configureGroup (with friend: GroupModels) {
+        nameLabel.text = friend.name
+        let urlImage = URL(string: friend.image)
+        friendImageView.kf.setImage(with: urlImage)
+    }
 }

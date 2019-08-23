@@ -10,26 +10,28 @@ import UIKit
 
 class UserGroupViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
 
-    var groupDictionary = [String:[GroupModel]]()
+    var groupDictionary = [String:[GroupModels]]()
     var groupSectionTitle = [String]()
     
-    var filteredArrays = [GroupModel]()
+    var filteredArrays = [GroupModels]()
     // var filteredArray = [String:[FriendsModel]]()
     
     let searchController = UISearchController(searchResultsController: nil)
     
-    var groupUser: [GroupModel] = [
-        GroupModel(name: "Свистуны", image: UIImage(named: "group1")!),
-        GroupModel(name: "Пивыны", image: UIImage(named: "group2")!),
-        GroupModel(name: "Вязальщики", image: UIImage(named: "group2")!),
-        GroupModel(name: "Рыболовы", image: UIImage(named: "group1")!),
-        GroupModel(name: "Пивыны хором", image: UIImage(named: "group2")!),
-        GroupModel(name: "Вязальщики спицами", image: UIImage(named: "group2")!),
-        GroupModel(name: "Рыболовы в океане", image: UIImage(named: "group1")!),
-        GroupModel(name: "Пивыны в одиночку", image: UIImage(named: "group2")!),
-        GroupModel(name: "Вязальщики крючком", image: UIImage(named: "group2")!),
-        GroupModel(name: "Рыболовы в реке", image: UIImage(named: "group1")!),
-    ]
+
+    var groupUser = [GroupModels]()
+    //    var groupUser: [GroupModel] = [
+//        GroupModel(name: "Свистуны", image: UIImage(named: "group1")!),
+//        GroupModel(name: "Пивыны", image: UIImage(named: "group2")!),
+//        GroupModel(name: "Вязальщики", image: UIImage(named: "group2")!),
+//        GroupModel(name: "Рыболовы", image: UIImage(named: "group1")!),
+//        GroupModel(name: "Пивыны хором", image: UIImage(named: "group2")!),
+//        GroupModel(name: "Вязальщики спицами", image: UIImage(named: "group2")!),
+//        GroupModel(name: "Рыболовы в океане", image: UIImage(named: "group1")!),
+//        GroupModel(name: "Пивыны в одиночку", image: UIImage(named: "group2")!),
+//        GroupModel(name: "Вязальщики крючком", image: UIImage(named: "group2")!),
+//        GroupModel(name: "Рыболовы в реке", image: UIImage(named: "group1")!),
+//    ]
     var customView: UIView!
     var labelsArray: Array<UILabel> = []
     var isAnimating = false
@@ -37,10 +39,25 @@ class UserGroupViewController: UITableViewController, UISearchResultsUpdating, U
     var currentLabelIndex = 0
     var timer: Timer!
     
+    private func getGroups() {
+        NetworkService.loadGroup() { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let groups):
+                self.groupUser = groups
+                self.filterContentForSearchText(searchText: "")
+                self.refreshControl!.endRefreshing()            //self.tableView.reloadData()
+            case .failure(let error):
+                fatalError(error.localizedDescription)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        filterContentForSearchText(searchText: "")
+        getGroups()
+        //filterContentForSearchText(searchText: "")
         searchBarSet()
         
         tableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: CustomTableViewCell.reuseId)
@@ -53,7 +70,6 @@ class UserGroupViewController: UITableViewController, UISearchResultsUpdating, U
         loadCustomRefreshContents()
         refreshControl?.addTarget(self, action: #selector(doSomething), for: .valueChanged)
         
-        NetworkService.loadGroups()
     }
     
 //    @objc func doSomething(refreshControl: UIRefreshControl) {
@@ -166,14 +182,16 @@ class UserGroupViewController: UITableViewController, UISearchResultsUpdating, U
             
             let groupKey = groupSectionTitle[indexPath.section]
             if let groupValues = groupDictionary[groupKey] {
-                cell.nameLabel.text = groupValues[indexPath.row].name
-                cell.friendImageView.image = groupValues[indexPath.row].image
+                cell.configureGroup(with: groupValues[indexPath.row])
+               // cell.nameLabel.text = groupValues[indexPath.row].name
+              //  cell.friendImageView.image = groupValues[indexPath.row].image
             }
         } else {
             let friendKey = groupSectionTitle[indexPath.section]
             if let groupValues = groupDictionary[friendKey] {
-                cell.nameLabel.text = groupValues[indexPath.row].name
-                cell.friendImageView.image = groupValues[indexPath.row].image
+                cell.configureGroup(with: groupValues[indexPath.row])
+             //   cell.nameLabel.text = groupValues[indexPath.row].name
+            //    cell.friendImageView.image = groupValues[indexPath.row].image
             }
         }
         return cell
@@ -196,7 +214,8 @@ class UserGroupViewController: UITableViewController, UISearchResultsUpdating, U
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             groupUser.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            filterContentForSearchText(searchText: "")
+        //    tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
@@ -341,13 +360,14 @@ class UserGroupViewController: UITableViewController, UISearchResultsUpdating, U
     
     
    @objc func doSomething() {
-        if timer == nil {
-            timer = Timer.scheduledTimer(timeInterval: 5.0,
-                                     target: self,
-                                     selector: #selector(endOfWork),
-                                     userInfo: nil,
-                                     repeats: true)
-        }
+//        if timer == nil {
+//            timer = Timer.scheduledTimer(timeInterval: 5.0,
+//                                     target: self,
+//                                     selector: #selector(endOfWork),
+//                                     userInfo: nil,
+//                                     repeats: true)
+//        }
+    getGroups()
     }
     
     
