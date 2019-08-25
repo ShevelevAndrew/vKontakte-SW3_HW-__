@@ -20,6 +20,7 @@ class UserGroupViewController: UITableViewController, UISearchResultsUpdating, U
     
 
     var groupUser = [GroupModels]()
+    
     //    var groupUser: [GroupModel] = [
 //        GroupModel(name: "Свистуны", image: UIImage(named: "group1")!),
 //        GroupModel(name: "Пивыны", image: UIImage(named: "group2")!),
