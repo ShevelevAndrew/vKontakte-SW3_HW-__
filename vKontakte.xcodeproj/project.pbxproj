@@ -15,6 +15,8 @@
 		490F2F7A22AE5F1B0020B8C9 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490F2F7922AE5F1B0020B8C9 /* NewsCell.swift */; };
 		490F2F7C22AF5D190020B8C9 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490F2F7B22AF5D180020B8C9 /* NewsModel.swift */; };
 		490F2F7E22AFAEFC0020B8C9 /* CustomNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 490F2F7D22AFAEFC0020B8C9 /* CustomNewsCell.xib */; };
+		49193C7F231420740036B7D7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49193C7E231420740036B7D7 /* Photo.swift */; };
+		49193C81231420DE0036B7D7 /* FriendPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49193C80231420DE0036B7D7 /* FriendPhotos.swift */; };
 		49605AB122BB3101004C3D6D /* CastomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49605AB022BB3101004C3D6D /* CastomPushAnimator.swift */; };
 		49605AB322BB91D2004C3D6D /* CustomSeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49605AB222BB91D2004C3D6D /* CustomSeque.swift */; };
 		49605AB522BB920F004C3D6D /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49605AB422BB920F004C3D6D /* CustomNavigationController.swift */; };
@@ -55,6 +57,8 @@
 		490F2F7922AE5F1B0020B8C9 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		490F2F7B22AF5D180020B8C9 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		490F2F7D22AFAEFC0020B8C9 /* CustomNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNewsCell.xib; sourceTree = "<group>"; };
+		49193C7E231420740036B7D7 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		49193C80231420DE0036B7D7 /* FriendPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPhotos.swift; sourceTree = "<group>"; };
 		49605AB022BB3101004C3D6D /* CastomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomPushAnimator.swift; sourceTree = "<group>"; };
 		49605AB222BB91D2004C3D6D /* CustomSeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSeque.swift; sourceTree = "<group>"; };
 		49605AB422BB920F004C3D6D /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
@@ -139,6 +143,8 @@
 				49E14E12230AAF0000FBEEFC /* FrindModel.swift */,
 				49E14E14230CD94300FBEEFC /* FriendModels.swift */,
 				4907A745230F916000E18353 /* GroupModels.swift */,
+				49193C7E231420740036B7D7 /* Photo.swift */,
+				49193C80231420DE0036B7D7 /* FriendPhotos.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -379,12 +385,14 @@
 				49E14E092306564A00FBEEFC /* VKLoginController.swift in Sources */,
 				490F2F7C22AF5D190020B8C9 /* NewsModel.swift in Sources */,
 				49605AB322BB91D2004C3D6D /* CustomSeque.swift in Sources */,
+				49193C81231420DE0036B7D7 /* FriendPhotos.swift in Sources */,
 				498EB7CB228BBAC500657B22 /* AppDelegate.swift in Sources */,
 				49E14E15230CD94300FBEEFC /* FriendModels.swift in Sources */,
 				490F2F7A22AE5F1B0020B8C9 /* NewsCell.swift in Sources */,
 				490F2F6C22AA6C900020B8C9 /* CustomTableviewCell.swift in Sources */,
 				498E13522296B04A00C72ECA /* FriendsCell.swift in Sources */,
 				490F2F7822AE5E120020B8C9 /* NewsViewController.swift in Sources */,
+				49193C7F231420740036B7D7 /* Photo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,7 +542,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 44DT7Y7UCU;
 				INFOPLIST_FILE = vKontakte/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -554,7 +562,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 44DT7Y7UCU;
 				INFOPLIST_FILE = vKontakte/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

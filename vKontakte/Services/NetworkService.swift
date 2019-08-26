@@ -131,6 +131,41 @@ class NetworkService {
         }
     }
     
+    static func fetchPhotos(for userId: Int, completion: @escaping (Result<[Photo], Error>) -> Void ) {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.vk.com"
+        urlComponents.path = "/method/photos.getAll"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "access_token", value: Sessions.shared.token),
+            URLQueryItem(name: "owner_id", value: String(userId)),
+            URLQueryItem(name: "extended", value: "1"),
+            URLQueryItem(name: "v", value: "5.92")
+        ]
+        
+        guard let url = urlComponents.url else { fatalError("Request url was badly formated.")}
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.allowsCellularAccess = false
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let data = data,
+                let json = try? JSON(data: data) else { return }
+            
+            let photosJSON = json["response"]["items"].arrayValue
+            let photos = photosJSON.map { Photo(json: $0) }
+            
+            DispatchQueue.main.async {
+                completion(.success(photos))
+            }
+        }
+        task.resume()
+    }
     
 }
 
