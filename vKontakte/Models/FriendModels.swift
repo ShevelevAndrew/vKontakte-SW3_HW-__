@@ -10,6 +10,7 @@ import Foundation
 import SwiftyJSON
 
 class FriendModels {
+    let id: Int
     let firstName: String
     let lastName: String
     let name: String
@@ -17,6 +18,7 @@ class FriendModels {
     let likeCount: String
     
     init(_ json: JSON) {
+        self.id = json["id"].intValue
         self.firstName = json["first_name"].stringValue
         self.lastName = json["last_name"].stringValue
         self.name = self.firstName + " " + self.lastName

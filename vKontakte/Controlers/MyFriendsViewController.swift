@@ -234,6 +234,7 @@ class MyFriendsViewController: UITableViewController, UISearchResultsUpdating, U
  
         let friendKey = friendSectionTitle[indexPath.section]
         
+       
         if let friendValues = friendDictionary[friendKey] {
             forecastController.friendNameForTitle = friendValues[indexPath.row].name
             forecastController.friendNameForLabel = friendValues[indexPath.row].name

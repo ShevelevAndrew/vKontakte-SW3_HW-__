@@ -171,29 +171,29 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="khh-Dv-zPA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nZ1-IJ-ZOv">
-                            <size key="itemSize" width="409" height="396"/>
+                            <size key="itemSize" width="409" height="700"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" misplaced="YES" reuseIdentifier="ForcastCell" id="Ynd-Iv-5dA" customClass="ForcastCell" customModule="vKontakte" customModuleProvider="target">
-                                <rect key="frame" x="2.5" y="0.0" width="409" height="396"/>
+                                <rect key="frame" x="2.5" y="0.0" width="409" height="700"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="409" height="396"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="409" height="700"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="more Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eo7-u3-7hP">
-                                            <rect key="frame" x="168" y="16" width="73" height="20.5"/>
+                                            <rect key="frame" x="168" y="16" width="73" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="aq3-HR-Zub">
-                                            <rect key="frame" x="154.5" y="56.5" width="100" height="100"/>
+                                            <rect key="frame" x="154.5" y="57" width="100" height="100"/>
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="OhI-gx-z0e"/>
@@ -209,8 +209,8 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TL9-Tx-avi" customClass="Likebutton" customModule="vKontakte" customModuleProvider="target">
-                                            <rect key="frame" x="159.5" y="188.5" width="30" height="30"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <rect key="frame" x="159.5" y="189" width="30" height="30"/>
+                                            <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="TEp-fT-37I"/>
                                                 <constraint firstAttribute="width" secondItem="TL9-Tx-avi" secondAttribute="height" multiplier="1:1" id="U9L-ee-xZl"/>
@@ -228,19 +228,21 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PP9-tw-1vR">
-                                            <rect key="frame" x="194.5" y="195.5" width="20" height="14"/>
+                                            <rect key="frame" x="194.5" y="196" width="20" height="14"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="635-lJ-epf">
-                                            <rect key="frame" x="0.0" y="238.5" width="409" height="64.5"/>
+                                            <rect key="frame" x="0.0" y="239" width="409" height="219"/>
                                             <gestureRecognizers/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="219" id="lG3-Mj-J73"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="635-lJ-epf" secondAttribute="bottom" constant="10" id="55u-ed-TSe"/>
                                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="PP9-tw-1vR" secondAttribute="trailing" id="7Rw-1A-7sn"/>
                                     <constraint firstItem="PP9-tw-1vR" firstAttribute="leading" secondItem="TL9-Tx-avi" secondAttribute="trailing" constant="5" id="LzK-xn-sGO"/>
                                     <constraint firstItem="eo7-u3-7hP" firstAttribute="top" secondItem="Ynd-Iv-5dA" secondAttribute="top" constant="16" id="VIk-Dv-u8A"/>
@@ -260,6 +262,7 @@
                                     <outlet property="friendNameLabel" destination="eo7-u3-7hP" id="NIb-e3-T1B"/>
                                     <outlet property="likeButton" destination="TL9-Tx-avi" id="AxA-l9-0hW"/>
                                     <outlet property="likeCount" destination="PP9-tw-1vR" id="8k9-2u-q6t"/>
+                                    <segue destination="8Jn-R3-lES" kind="show" identifier="showImages" id="fPt-z1-tQC"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -272,6 +275,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qeR-Hi-XOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3911.594202898551" y="-869.19642857142856"/>
+        </scene>
+        <!--User Foto View Controller-->
+        <scene sceneID="dT4-Cf-ERu">
+            <objects>
+                <collectionViewController id="8Jn-R3-lES" customClass="UserFotoViewController" customModule="vKontakte" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" dataMode="prototypes" id="B1J-3h-KHH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0WE-VT-ahx">
+                            <size key="itemSize" width="409" height="267"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="PhotoViewCell" id="aBL-MM-yjW" customClass="PhotoViewCell" customModule="vKontakte" customModuleProvider="target">
+                                <rect key="frame" x="2.5" y="0.0" width="409" height="267"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="409" height="267"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="user3" translatesAutoresizingMaskIntoConstraints="NO" id="e6J-LL-tQ7">
+                                            <rect key="frame" x="5" y="5" width="404" height="262"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="404" id="geZ-qA-AQ4"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="circle" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="e6J-LL-tQ7" firstAttribute="centerX" secondItem="aBL-MM-yjW" secondAttribute="centerX" id="RHg-rF-a4D"/>
+                                    <constraint firstItem="e6J-LL-tQ7" firstAttribute="centerY" secondItem="aBL-MM-yjW" secondAttribute="centerY" id="sbx-6J-OEh"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="img" destination="e6J-LL-tQ7" id="eD8-tl-G5r"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="8Jn-R3-lES" id="XIX-0J-Kol"/>
+                            <outlet property="delegate" destination="8Jn-R3-lES" id="lp5-eW-VgR"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ju3-Ho-scp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4847.826086956522" y="-869.19642857142856"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="XVr-82-de8">
+            <objects>
+                <viewController id="6fV-1o-zUC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I63-hg-tHn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="QBP-Sa-o9R"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kjR-GQ-ZR3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5729" y="-885"/>
         </scene>
         <!--Список друзей-->
         <scene sceneID="Mz6-rL-8kL">
@@ -624,6 +694,7 @@
         <image name="group" width="32" height="32"/>
         <image name="news" width="32" height="32"/>
         <image name="user" width="32" height="32"/>
+        <image name="user3" width="184" height="184"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="w4c-3M-XUq"/>

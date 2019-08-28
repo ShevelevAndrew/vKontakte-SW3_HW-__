@@ -16,12 +16,15 @@ class FriendsCollectionViewController: UICollectionViewController {
     var friendNameForLabel: String = ""
     var friendNameForImage: UIImage = UIImage(named: "user")!
     var likeCount: String = ""
-    var imageCollection = [String] ()
+//    var imageCollection = [String] ()
     var imageCount: Int = 0
     weak var likeCountLabel: UILabel!
     weak var likeButton: Likebutton!
     
     var friends = [FriendModels]()
+    
+    var photos = [Photo]()
+    public var userId: Int?
     
     weak var fotoCollections: UIImageView!
     
@@ -30,11 +33,27 @@ class FriendsCollectionViewController: UICollectionViewController {
 
         title = friendNameForTitle
         
-        imageCollection.append("news1")
-        imageCollection.append("news2")
-        imageCollection.append("news3")
-        imageCollection.append("user3")
-        imageCollection.append("background")
+//        imageCollection.append("news1")
+//        imageCollection.append("news2")
+//        imageCollection.append("news3")
+//        imageCollection.append("user3")
+//        imageCollection.append("background")
+//        
+        userId = friends[0].id
+
+        if let userId = userId {
+            NetworkService.fetchPhotos(for: userId) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let photos):
+                    self.photos = photos
+                    self.collectionView.reloadData()
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -73,9 +92,22 @@ class FriendsCollectionViewController: UICollectionViewController {
         
         cell.fotoColection.addGestureRecognizer(swipeGestureRight)
         cell.fotoColection.addGestureRecognizer(swipeGestureLeft)
-        cell.fotoColection.image = UIImage(named: imageCollection[0])
 
+        let urlImage = URL(string: friends[0].image)
+        cell.fotoColection.kf.setImage(with: urlImage)
+        
+//        if photos.count < 0 {
+//        cell.fotoColection.kf.setImage(with: photos[0].photoURL) //image = UIImage(named: imageCollection[0])
+//        }
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showImages" {
+                if let userImages = segue.destination as? UserFotoViewController {
+                    userImages.userId = userId!
+            }
+        }
     }
     
     @objc func getSwipeAction( _ recognizer : UISwipeGestureRecognizer){
@@ -85,12 +117,12 @@ class FriendsCollectionViewController: UICollectionViewController {
             if imageCount != 0 {
                 imageCount -= 1
             }
-            fotoCollections.image = UIImage(named: imageCollection[imageCount])
+            fotoCollections.kf.setImage(with: photos[imageCount].photoURL) // = UIImage(named: imageCollection[imageCount])
         case .left:
-            if imageCount < imageCollection.count - 1 {
+            if imageCount < photos.count - 1 {
                 imageCount += 1
             }
-            fotoCollections.image = UIImage(named: imageCollection[imageCount])
+            fotoCollections.kf.setImage(with: photos[imageCount].photoURL) // = UIImage(named: imageCollection[imageCount])
        
         default:
             print(recognizer.direction)
