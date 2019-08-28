@@ -15,5 +15,4 @@ class PhotoViewCell: UICollectionViewCell {
     public func configurePhotos(with photo: Photo) {
         img.kf.setImage(with: photo.photoURL)
     }
-    
 }
