@@ -16,7 +16,6 @@ class FriendsCollectionViewController: UICollectionViewController {
     var friendNameForLabel: String = ""
     var friendNameForImage: UIImage = UIImage(named: "user")!
     var likeCount: String = ""
-//    var imageCollection = [String] ()
     var imageCount: Int = 0
     weak var likeCountLabel: UILabel!
     weak var likeButton: Likebutton!
@@ -32,13 +31,7 @@ class FriendsCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
 
         title = friendNameForTitle
-        
-//        imageCollection.append("news1")
-//        imageCollection.append("news2")
-//        imageCollection.append("news3")
-//        imageCollection.append("user3")
-//        imageCollection.append("background")
-//        
+      
         userId = friends[0].id
 
         if let userId = userId {
@@ -73,10 +66,7 @@ class FriendsCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ForcastCell.reuseIdentifier, for: indexPath) as?
         ForcastCell else { return UICollectionViewCell() }
-        
-//        cell.friendNameLabel.text = friends[0].name
-//        let urlImage = URL(string: friends[0].image)
-//        cell.friendImageView.kf.setImage(with: urlImage)
+
         let friend = friends[0]
         cell.configure(with: friend)
         
