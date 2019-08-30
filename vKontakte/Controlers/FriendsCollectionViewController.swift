@@ -46,7 +46,6 @@ class FriendsCollectionViewController: UICollectionViewController {
                 }
             }
         }
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {

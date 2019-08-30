@@ -18,21 +18,8 @@ class UserGroupViewController: UITableViewController, UISearchResultsUpdating, U
     
     let searchController = UISearchController(searchResultsController: nil)
     
-
     var groupUser = [GroupModels]()
-    
-    //    var groupUser: [GroupModel] = [
-//        GroupModel(name: "Свистуны", image: UIImage(named: "group1")!),
-//        GroupModel(name: "Пивыны", image: UIImage(named: "group2")!),
-//        GroupModel(name: "Вязальщики", image: UIImage(named: "group2")!),
-//        GroupModel(name: "Рыболовы", image: UIImage(named: "group1")!),
-//        GroupModel(name: "Пивыны хором", image: UIImage(named: "group2")!),
-//        GroupModel(name: "Вязальщики спицами", image: UIImage(named: "group2")!),
-//        GroupModel(name: "Рыболовы в океане", image: UIImage(named: "group1")!),
-//        GroupModel(name: "Пивыны в одиночку", image: UIImage(named: "group2")!),
-//        GroupModel(name: "Вязальщики крючком", image: UIImage(named: "group2")!),
-//        GroupModel(name: "Рыболовы в реке", image: UIImage(named: "group1")!),
-//    ]
+
     var customView: UIView!
     var labelsArray: Array<UILabel> = []
     var isAnimating = false
@@ -166,14 +153,7 @@ class UserGroupViewController: UITableViewController, UISearchResultsUpdating, U
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: GroopCell.reuseIdentifier, for: indexPath) as?
-//            GroopCell else { return UITableViewCell() }
-//
-//        cell.groopNameLabel.text = groupUser[indexPath.row].name
-//        cell.groopImageView.image = groupUser[indexPath.row].image
-//
-//        return cell
-        
+
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.reuseId, for: indexPath) as? CustomTableViewCell else { return UITableViewCell() }
         
         cell.layer.cornerRadius = 5
@@ -184,15 +164,11 @@ class UserGroupViewController: UITableViewController, UISearchResultsUpdating, U
             let groupKey = groupSectionTitle[indexPath.section]
             if let groupValues = groupDictionary[groupKey] {
                 cell.configureGroup(with: groupValues[indexPath.row])
-               // cell.nameLabel.text = groupValues[indexPath.row].name
-              //  cell.friendImageView.image = groupValues[indexPath.row].image
             }
         } else {
             let friendKey = groupSectionTitle[indexPath.section]
             if let groupValues = groupDictionary[friendKey] {
                 cell.configureGroup(with: groupValues[indexPath.row])
-             //   cell.nameLabel.text = groupValues[indexPath.row].name
-            //    cell.friendImageView.image = groupValues[indexPath.row].image
             }
         }
         return cell
