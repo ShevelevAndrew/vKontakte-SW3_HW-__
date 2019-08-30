@@ -74,7 +74,6 @@ class CustomNavigationController: UINavigationController, UINavigationController
         default:
             break
         }
-        
     }
 }
 
