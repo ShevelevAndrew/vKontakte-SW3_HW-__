@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import RealmSwift
 
 class MyFriendsViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
@@ -20,14 +21,20 @@ class MyFriendsViewController: UITableViewController, UISearchResultsUpdating, U
     let animationCell = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
     let animation = CABasicAnimation(keyPath: "bounds.origin.y")
 
-    var friends = [FriendModels]()
+//    var friends = [FriendModels]()
+    
+    private lazy var friends = try? Realm().objects(FriendModels.self) //.filter("city == %@", city).sorted(byKeyPath: "id")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService.loadFrienddd { [weak self] friends in
-            self?.friends = friends
-            self?.filterContentForSearchText(searchText: "")
+//        networkService.loadFrienddd { [weak self] friends in
+//            self?.friends = friends
+//            self?.filterContentForSearchText(searchText: "")
+//        }
+        
+        networkService.loadFrienddd { friends in
+            try? RealmProvider.save(items: friends)
         }
 
         filterContentForSearchText(searchText: "")
@@ -44,10 +51,10 @@ class MyFriendsViewController: UITableViewController, UISearchResultsUpdating, U
     }
     @objc func doSomething(refreshControl: UIRefreshControl) {
         print("Hello World! refresh....")
-        networkService.loadFrienddd { [weak self] friends in
-            self?.friends = friends
-            self?.filterContentForSearchText(searchText: "")
-        }
+//        networkService.loadFrienddd { [weak self] friends in
+//            self?.friends = friends
+//            self?.filterContentForSearchText(searchText: "")
+//        }
         refreshControl.endRefreshing()
     }
     
@@ -66,11 +73,12 @@ class MyFriendsViewController: UITableViewController, UISearchResultsUpdating, U
     
     func filterContentForSearchText(searchText: String) {
         if (searchController.isActive && searchController.searchBar.text != "") {
-            filteredArrays = friends.filter { friend in
+            filteredArrays = (friends?.filter { friend in
                 return (friend.name.lowercased().contains(searchText.lowercased()))
-            }
+                })!
         }else {
-            filteredArrays = friends.sorted(by: {$0.name < $1.name})
+            guard let friend = friends?.sorted(by: {$0.name < $1.name}) else { return }
+            filteredArrays = friend //friends!.sorted(by: {$0.name < $1.name})
         }
         
             friendDictionary = [:]
@@ -223,7 +231,7 @@ class MyFriendsViewController: UITableViewController, UISearchResultsUpdating, U
             forecastController.friendNameForLabel = friendValues[indexPath.row].name
          //*   forecastController.friendNameForImage = friendValues[indexPath.row].image
             forecastController.likeCount = friendValues[indexPath.row].likeCount
-            forecastController.friends = [friends[indexPath.section]]
+            forecastController.friends = [friends?[indexPath.section]] as! [FriendModels]
         }
     }
  }

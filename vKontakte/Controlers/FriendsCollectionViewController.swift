@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import RealmSwift
 
 private let reuseIdentifier = "Cell"
 
@@ -40,12 +41,14 @@ class FriendsCollectionViewController: UICollectionViewController {
                 switch result {
                 case .success(let photos):
                     self.photos = photos
+                    try? RealmProvider.save(items: photos)
                     self.collectionView.reloadData()
                 case .failure(let error):
                     print(error)
                 }
             }
         }
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -106,12 +109,13 @@ class FriendsCollectionViewController: UICollectionViewController {
             if imageCount != 0 {
                 imageCount -= 1
             }
-            fotoCollections.kf.setImage(with: photos[imageCount].photoURL) // = UIImage(named: imageCollection[imageCount])
+           //* let urlPhoto = URL(string: photos[imageCount].photoURL)
+           //* fotoCollections.kf.setImage(with: urlPhoto)// (with: urlPhoto) // = UIImage(named: imageCollection[imageCount])
         case .left:
             if imageCount < photos.count - 1 {
                 imageCount += 1
             }
-            fotoCollections.kf.setImage(with: photos[imageCount].photoURL) // = UIImage(named: imageCollection[imageCount])
+          //*  fotoCollections.kf.setImage(with: photos[imageCount].photoURL) // = UIImage(named: imageCollection[imageCount])
        
         default:
             print(recognizer.direction)

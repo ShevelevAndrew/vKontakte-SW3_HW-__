@@ -23,6 +23,7 @@
 		49605AB322BB91D2004C3D6D /* CustomSeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49605AB222BB91D2004C3D6D /* CustomSeque.swift */; };
 		49605AB522BB920F004C3D6D /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49605AB422BB920F004C3D6D /* CustomNavigationController.swift */; };
 		49605AB722BC87D9004C3D6D /* CustomNavigationController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49605AB622BC87D9004C3D6D /* CustomNavigationController2.swift */; };
+		4982503D231A13E000E034CB /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4982503C231A13E000E034CB /* RealmProvider.swift */; };
 		498E13522296B04A00C72ECA /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E13512296B04A00C72ECA /* FriendsCell.swift */; };
 		498E13542296B3DC00C72ECA /* ForcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E13532296B3DC00C72ECA /* ForcastCell.swift */; };
 		498E13572296E07F00C72ECA /* GroopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E13562296E07F00C72ECA /* GroopCell.swift */; };
@@ -67,6 +68,7 @@
 		49605AB222BB91D2004C3D6D /* CustomSeque.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSeque.swift; sourceTree = "<group>"; };
 		49605AB422BB920F004C3D6D /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		49605AB622BC87D9004C3D6D /* CustomNavigationController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController2.swift; sourceTree = "<group>"; };
+		4982503C231A13E000E034CB /* RealmProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		498E13512296B04A00C72ECA /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
 		498E13532296B3DC00C72ECA /* ForcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcastCell.swift; sourceTree = "<group>"; };
 		498E13562296E07F00C72ECA /* GroopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroopCell.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				49E14E1023093F4A00FBEEFC /* NetworkService.swift */,
+				4982503C231A13E000E034CB /* RealmProvider.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				499A983222919B7F00356DB7 /* UserGroupViewController.swift in Sources */,
 				49605AB522BB920F004C3D6D /* CustomNavigationController.swift in Sources */,
 				49E14E13230AAF0000FBEEFC /* FrindModel.swift in Sources */,
+				4982503D231A13E000E034CB /* RealmProvider.swift in Sources */,
 				499A983022919B2400356DB7 /* FriendsCollectionViewController.swift in Sources */,
 				4907A746230F916000E18353 /* GroupModels.swift in Sources */,
 				498E135B2296F3F900C72ECA /* GroupModell.swift in Sources */,
