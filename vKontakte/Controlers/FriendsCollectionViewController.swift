@@ -23,7 +23,9 @@ class FriendsCollectionViewController: UICollectionViewController {
     
     var friends = [FriendModels]()
     
-    var photos = [Photo]()
+//    var photos = [Photo]()
+    private lazy var photos = try? Realm().objects(Photo.self)
+    
     public var userId: Int?
     
     weak var fotoCollections: UIImageView!
@@ -40,7 +42,7 @@ class FriendsCollectionViewController: UICollectionViewController {
                 guard let self = self else { return }
                 switch result {
                 case .success(let photos):
-                    self.photos = photos
+                    //self.photos = photos
                     try? RealmProvider.save(items: photos)
                     self.collectionView.reloadData()
                 case .failure(let error):
@@ -103,19 +105,22 @@ class FriendsCollectionViewController: UICollectionViewController {
     }
     
     @objc func getSwipeAction( _ recognizer : UISwipeGestureRecognizer){
+        guard let photos = photos else { return }
         
         switch recognizer.direction {
         case .right:
             if imageCount != 0 {
                 imageCount -= 1
             }
-           //* let urlPhoto = URL(string: photos[imageCount].photoURL)
-           //* fotoCollections.kf.setImage(with: urlPhoto)// (with: urlPhoto) // = UIImage(named: imageCollection[imageCount])
+            
+            let url = URL(string: photos[imageCount].photoURL)
+            fotoCollections.kf.setImage(with: url)
         case .left:
             if imageCount < photos.count - 1 {
                 imageCount += 1
             }
-          //*  fotoCollections.kf.setImage(with: photos[imageCount].photoURL) // = UIImage(named: imageCollection[imageCount])
+            let url = URL(string: photos[imageCount].photoURL)
+            fotoCollections.kf.setImage(with: url)
        
         default:
             print(recognizer.direction)
