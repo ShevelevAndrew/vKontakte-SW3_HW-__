@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 private let reuseIdentifier = "Cell"
-
+private var notificationToken: NotificationToken?
 
 class UserFotoViewController: UICollectionViewController {
 
@@ -34,7 +34,21 @@ class UserFotoViewController: UICollectionViewController {
                 }
             }
         }
-        photos = try? RealmProvider.get(Photo.self).filter("owner_id == %@", userId ?? 1)
+        photos = try? RealmProvider.get(Photo.self).filter("owner_id == %@", userId ?? 0)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        notificationToken = photos?.observe { [weak self] change in
+            guard let self = self else { return }
+            switch change {
+            case .initial:
+                break
+            case .update:
+                self.collectionView.reloadData()
+            case .error(let error):
+                self.show(error)
+            }
+        }
     }
 
 

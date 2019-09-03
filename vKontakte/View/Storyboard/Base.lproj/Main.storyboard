@@ -283,37 +283,30 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" dataMode="prototypes" id="B1J-3h-KHH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0WE-VT-ahx">
-                            <size key="itemSize" width="409" height="391"/>
+                            <size key="itemSize" width="413" height="228"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" reuseIdentifier="PhotoViewCell" id="aBL-MM-yjW" customClass="PhotoViewCell" customModule="vKontakte" customModuleProvider="target">
-                                <rect key="frame" x="2.5" y="0.0" width="409" height="391"/>
+                                <rect key="frame" x="0.5" y="0.0" width="413" height="228"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="409" height="391"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="413" height="228"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="user3" translatesAutoresizingMaskIntoConstraints="NO" id="e6J-LL-tQ7">
-                                            <rect key="frame" x="5" y="5" width="184" height="391"/>
-                                            <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="circle" value="NO"/>
-                                            </userDefinedRuntimeAttributes>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lsV-KT-I2B">
+                                            <rect key="frame" x="15" y="0.0" width="383" height="238"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
                                     </subviews>
                                 </view>
-                                <constraints>
-                                    <constraint firstItem="e6J-LL-tQ7" firstAttribute="centerX" secondItem="aBL-MM-yjW" secondAttribute="centerX" id="RHg-rF-a4D"/>
-                                    <constraint firstItem="e6J-LL-tQ7" firstAttribute="centerY" secondItem="aBL-MM-yjW" secondAttribute="centerY" id="sbx-6J-OEh"/>
-                                </constraints>
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                 <connections>
-                                    <outlet property="img" destination="e6J-LL-tQ7" id="eD8-tl-G5r"/>
+                                    <outlet property="img" destination="lsV-KT-I2B" id="ebq-dJ-6x2"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -693,7 +686,6 @@
         <image name="group" width="32" height="32"/>
         <image name="news" width="32" height="32"/>
         <image name="user" width="32" height="32"/>
-        <image name="user3" width="184" height="184"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="w4c-3M-XUq"/>
