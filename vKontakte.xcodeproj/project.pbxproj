@@ -211,12 +211,12 @@
 				498EB7DC228BC49E00657B22 /* LauncheControler.swift */,
 				499A982D22919ABB00356DB7 /* MyFriendsViewController.swift */,
 				499A982F22919B2400356DB7 /* FriendsCollectionViewController.swift */,
+				49193C82231548600036B7D7 /* UserFotoViewController.swift */,
 				499A983122919B7F00356DB7 /* UserGroupViewController.swift */,
 				499A983322919BC800356DB7 /* SearchGroupViewController.swift */,
 				49CA469C229D85A8008BA1FD /* UIView-Extension.swift */,
 				490F2F7722AE5E120020B8C9 /* NewsViewController.swift */,
 				49E14E082306564A00FBEEFC /* VKLoginController.swift */,
-				49193C82231548600036B7D7 /* UserFotoViewController.swift */,
 			);
 			path = Controlers;
 			sourceTree = "<group>";

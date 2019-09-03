@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 private let reuseIdentifier = "Cell"
 
@@ -14,7 +15,8 @@ private let reuseIdentifier = "Cell"
 class UserFotoViewController: UICollectionViewController {
 
     public var userId: Int? = 1
-    public var photos = [Photo]()
+    //public var photos = [Photo]()
+    fileprivate var photos: Results<Photo>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,24 +26,26 @@ class UserFotoViewController: UICollectionViewController {
                 guard let self = self else { return }
                 switch result {
                 case .success(let photos):
-                    self.photos = photos
+                   // self.photos = photos
+                    try? RealmProvider.save(items: photos)
                     self.collectionView.reloadData()
                 case .failure(let error):
                     print(error)
                 }
             }
         }
+        photos = try? RealmProvider.get(Photo.self)
     }
 
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return (photos?.count ?? nil)!
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoViewCell", for: indexPath) as! PhotoViewCell
-        cell.configurePhotos(with: photos[indexPath.item])
+        cell.configurePhotos(with: photos![indexPath.item])
         let opacity = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
         opacity.fromValue = 0
         opacity.toValue = 1
