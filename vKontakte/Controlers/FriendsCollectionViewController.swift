@@ -24,7 +24,9 @@ class FriendsCollectionViewController: UICollectionViewController {
     var friends = [FriendModels]()
     
 //    var photos = [Photo]()
-    private lazy var photos = try? Realm().objects(Photo.self)
+//    private lazy var photos = try? Realm().objects(Photo.self)
+    fileprivate var photos: Results<Photo>?
+    private var notificationToken: NotificationToken?
     
     public var userId: Int?
     
@@ -42,7 +44,6 @@ class FriendsCollectionViewController: UICollectionViewController {
                 guard let self = self else { return }
                 switch result {
                 case .success(let photos):
-                    //self.photos = photos
                     try? RealmProvider.save(items: photos)
                     self.collectionView.reloadData()
                 case .failure(let error):
@@ -50,6 +51,8 @@ class FriendsCollectionViewController: UICollectionViewController {
                 }
             }
         }
+        
+        photos = try? RealmProvider.get(Photo.self)
 
     }
     
