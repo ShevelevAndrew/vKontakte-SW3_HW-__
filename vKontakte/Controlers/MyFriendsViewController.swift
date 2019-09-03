@@ -21,21 +21,18 @@ class MyFriendsViewController: UITableViewController, UISearchResultsUpdating, U
     let animationCell = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
     let animation = CABasicAnimation(keyPath: "bounds.origin.y")
 
-//    var friends = [FriendModels]()
-    
-    private lazy var friends = try? Realm().objects(FriendModels.self) //.filter("city == %@", city).sorted(byKeyPath: "id")
+  //  var friends = [FriendModels]()
+    fileprivate var friends: Results<FriendModels>?
+    private var notificationToken: NotificationToken?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        networkService.loadFrienddd { [weak self] friends in
-//            self?.friends = friends
-//            self?.filterContentForSearchText(searchText: "")
-//        }
-        
         networkService.loadFrienddd { friends in
             try? RealmProvider.save(items: friends)
         }
+        
+        friends = try? RealmProvider.get(FriendModels.self) //.sorted(byKeyPath: "name")
 
         filterContentForSearchText(searchText: "")
         searchBarSet()
@@ -49,12 +46,34 @@ class MyFriendsViewController: UITableViewController, UISearchResultsUpdating, U
         refreshControl?.addTarget(self, action: #selector(doSomething), for: .valueChanged)
     
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        notificationToken = friends?.observe { [weak self] change in
+            guard let self = self else { return }
+            switch change {
+            case .initial:
+                self.tableView.reloadData()
+            case .update(_, let deletions, let insertions, let modifications):
+                self.tableView.update(deletions: deletions, insertions: insertions, modifications: modifications)
+            case .error(let error):
+                self.show(error)
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        notificationToken?.invalidate()
+    }
+    
     @objc func doSomething(refreshControl: UIRefreshControl) {
         print("Hello World! refresh....")
-//        networkService.loadFrienddd { [weak self] friends in
-//            self?.friends = friends
-//            self?.filterContentForSearchText(searchText: "")
-//        }
+        friends = try? RealmProvider.get(FriendModels.self)
         refreshControl.endRefreshing()
     }
     

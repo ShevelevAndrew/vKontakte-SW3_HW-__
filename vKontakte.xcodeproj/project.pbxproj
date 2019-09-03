@@ -24,6 +24,8 @@
 		49605AB522BB920F004C3D6D /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49605AB422BB920F004C3D6D /* CustomNavigationController.swift */; };
 		49605AB722BC87D9004C3D6D /* CustomNavigationController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49605AB622BC87D9004C3D6D /* CustomNavigationController2.swift */; };
 		4982503D231A13E000E034CB /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4982503C231A13E000E034CB /* RealmProvider.swift */; };
+		49825043231E238A00E034CB /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49825041231E238A00E034CB /* UIViewController+Ext.swift */; };
+		49825044231E238A00E034CB /* UITableView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49825042231E238A00E034CB /* UITableView+Ext.swift */; };
 		498E13522296B04A00C72ECA /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E13512296B04A00C72ECA /* FriendsCell.swift */; };
 		498E13542296B3DC00C72ECA /* ForcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E13532296B3DC00C72ECA /* ForcastCell.swift */; };
 		498E13572296E07F00C72ECA /* GroopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498E13562296E07F00C72ECA /* GroopCell.swift */; };
@@ -69,6 +71,8 @@
 		49605AB422BB920F004C3D6D /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		49605AB622BC87D9004C3D6D /* CustomNavigationController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController2.swift; sourceTree = "<group>"; };
 		4982503C231A13E000E034CB /* RealmProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
+		49825041231E238A00E034CB /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Ext.swift"; path = "../UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		49825042231E238A00E034CB /* UITableView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableView+Ext.swift"; path = "../UITableView+Ext.swift"; sourceTree = "<group>"; };
 		498E13512296B04A00C72ECA /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
 		498E13532296B3DC00C72ECA /* ForcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcastCell.swift; sourceTree = "<group>"; };
 		498E13562296E07F00C72ECA /* GroopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroopCell.swift; sourceTree = "<group>"; };
@@ -124,6 +128,15 @@
 			path = Transition;
 			sourceTree = "<group>";
 		};
+		49825045231E239300E034CB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				49825042231E238A00E034CB /* UITableView+Ext.swift */,
+				49825041231E238A00E034CB /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		498E13552296B89C00C72ECA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +190,7 @@
 		498EB7C9228BBAC500657B22 /* vKontakte */ = {
 			isa = PBXGroup;
 			children = (
+				49825045231E239300E034CB /* Extensions */,
 				49605AAF22BB30CC004C3D6D /* Transition */,
 				499A982C2291996300356DB7 /* Controlers */,
 				498EB7D1228BBAC800657B22 /* Assets.xcassets */,
@@ -374,6 +388,7 @@
 			files = (
 				498E13542296B3DC00C72ECA /* ForcastCell.swift in Sources */,
 				49CA469D229D85A8008BA1FD /* UIView-Extension.swift in Sources */,
+				49825043231E238A00E034CB /* UIViewController+Ext.swift in Sources */,
 				498E13592296F3D900C72ECA /* FriendsModel.swift in Sources */,
 				499A982E22919ABB00356DB7 /* MyFriendsViewController.swift in Sources */,
 				490F2F6A22AA6B160020B8C9 /* GradientView.swift in Sources */,
@@ -403,6 +418,7 @@
 				490F2F6C22AA6C900020B8C9 /* CustomTableviewCell.swift in Sources */,
 				498E13522296B04A00C72ECA /* FriendsCell.swift in Sources */,
 				490F2F7822AE5E120020B8C9 /* NewsViewController.swift in Sources */,
+				49825044231E238A00E034CB /* UITableView+Ext.swift in Sources */,
 				49193C83231548600036B7D7 /* UserFotoViewController.swift in Sources */,
 				49193C7F231420740036B7D7 /* Photo.swift in Sources */,
 			);
