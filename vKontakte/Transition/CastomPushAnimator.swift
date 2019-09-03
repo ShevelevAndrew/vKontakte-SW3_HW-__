@@ -65,7 +65,6 @@ class CustomPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             transitionContext.completeTransition(finished)
         })
     }
-    
 }
 
 class PushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
@@ -100,8 +99,6 @@ class PushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             UIView.addKeyframe(withRelativeStartTime: 0.6, relativeDuration: 0.4, animations: {
                 destination.view.transform = .identity
             })
-            
-            
         }) { (finished) in
             if finished && !transitionContext.transitionWasCancelled {
                 source.view.transform = .identity
@@ -109,9 +106,6 @@ class PushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             transitionContext.completeTransition(finished && !transitionContext.transitionWasCancelled)
         }
     }
-    
-    
-    
 }
 
 
@@ -160,7 +154,4 @@ class PopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             transitionContext.completeTransition(finished && !transitionContext.transitionWasCancelled)
         }
     }
-    
-    
-    
 }

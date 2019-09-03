@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import RealmSwift
 
 private let reuseIdentifier = "Cell"
 
@@ -22,7 +23,11 @@ class FriendsCollectionViewController: UICollectionViewController {
     
     var friends = [FriendModels]()
     
-    var photos = [Photo]()
+//    var photos = [Photo]()
+//    private lazy var photos = try? Realm().objects(Photo.self)
+    fileprivate var photos: Results<Photo>?
+    private var notificationToken: NotificationToken?
+    
     public var userId: Int?
     
     weak var fotoCollections: UIImageView!
@@ -39,7 +44,7 @@ class FriendsCollectionViewController: UICollectionViewController {
                 guard let self = self else { return }
                 switch result {
                 case .success(let photos):
-                    self.photos = photos
+                    try? RealmProvider.save(items: photos)
                     self.collectionView.reloadData()
                 case .failure(let error):
                     print(error)
@@ -47,6 +52,8 @@ class FriendsCollectionViewController: UICollectionViewController {
             }
         }
         
+        photos = try? RealmProvider.get(Photo.self).filter("owner_id == %@", userId ?? 1)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -101,18 +108,22 @@ class FriendsCollectionViewController: UICollectionViewController {
     }
     
     @objc func getSwipeAction( _ recognizer : UISwipeGestureRecognizer){
+        guard let photos = photos else { return }
         
         switch recognizer.direction {
         case .right:
             if imageCount != 0 {
                 imageCount -= 1
             }
-            fotoCollections.kf.setImage(with: photos[imageCount].photoURL) // = UIImage(named: imageCollection[imageCount])
+            
+            let url = URL(string: photos[imageCount].photoURL)
+            fotoCollections.kf.setImage(with: url)
         case .left:
             if imageCount < photos.count - 1 {
                 imageCount += 1
             }
-            fotoCollections.kf.setImage(with: photos[imageCount].photoURL) // = UIImage(named: imageCollection[imageCount])
+            let url = URL(string: photos[imageCount].photoURL)
+            fotoCollections.kf.setImage(with: url)
        
         default:
             print(recognizer.direction)

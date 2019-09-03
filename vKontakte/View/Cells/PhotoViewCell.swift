@@ -13,6 +13,7 @@ class PhotoViewCell: UICollectionViewCell {
     @IBOutlet weak var img: UIImageView!
     
     public func configurePhotos(with photo: Photo) {
-        img.kf.setImage(with: photo.photoURL)
+        let urlPhoto = URL(string: photo.photoURL)
+        img.kf.setImage(with: urlPhoto)
     }
 }

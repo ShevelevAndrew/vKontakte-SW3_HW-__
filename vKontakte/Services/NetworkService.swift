@@ -158,7 +158,7 @@ class NetworkService {
                 let json = try? JSON(data: data) else { return }
             
             let photosJSON = json["response"]["items"].arrayValue
-            let photos = photosJSON.map { Photo(json: $0) }
+            let photos = photosJSON.map { Photo($0) }
             
             DispatchQueue.main.async {
                 completion(.success(photos))

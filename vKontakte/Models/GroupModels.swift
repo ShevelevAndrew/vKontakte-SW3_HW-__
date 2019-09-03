@@ -8,16 +8,23 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
-class GroupModels {
-    let id: Int
-    let name: String
-    let image: String
+class GroupModels: Object {
+    @objc dynamic var id: Int = 0
+    @objc dynamic var name: String = ""
+    @objc dynamic var image: String = ""
     
-    init(_ json: JSON) {
+    convenience init(_ json: JSON) {
+        self.init()
+        
         self.id = json["id"].intValue
         self.name = json["name"].stringValue
         self.image = json["photo_200"].stringValue
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }
 
