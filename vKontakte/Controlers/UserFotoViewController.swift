@@ -34,7 +34,7 @@ class UserFotoViewController: UICollectionViewController {
                 }
             }
         }
-        photos = try? RealmProvider.get(Photo.self)
+        photos = try? RealmProvider.get(Photo.self).filter("owner_id == %@", userId ?? 1)
     }
 
 

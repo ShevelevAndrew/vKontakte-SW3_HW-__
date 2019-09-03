@@ -12,6 +12,7 @@ import RealmSwift
 
 class Photo: Object {
     @objc dynamic var id: Int = 0
+    @objc dynamic var owner_id = 0
     @objc dynamic var photoURL: String = "" //URL?
     
     let friend = LinkingObjects(fromType: FriendModels.self, property: "photo")
@@ -21,6 +22,7 @@ class Photo: Object {
         self.init()
         
         self.id = json["id"].intValue
+        self.owner_id = json["owner_id"].intValue
         let sizes = json["sizes"].arrayValue
         let biggestSize = sizes.reduce(sizes[0]) { currentTopSize, newSize -> JSON in
             let currentPoints = currentTopSize["width"].intValue * currentTopSize["height"].intValue
